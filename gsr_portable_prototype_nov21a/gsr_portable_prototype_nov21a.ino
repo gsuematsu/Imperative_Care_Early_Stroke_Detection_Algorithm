@@ -7,6 +7,8 @@
 #define V_IN 3.3 // Voltage in Volts
 #define PIN_SD_CS 10
 
+String FILE_NAME = "gsr.txt";
+
 File my_file;
 RTC_PCF8523 rtc;
 String rtc_date = "";
@@ -73,7 +75,7 @@ void loop() {
   Serial.print(skinResist); Serial.println(" kOhms");
   
   // Writes information to file on SD card
-  my_file = SD.open("pit.txt", FILE_WRITE);
+  my_file = SD.open(FILE_NAME, FILE_WRITE);
   if(my_file){
     my_file.print(rtc_date); my_file.print(' ');
     my_file.print(rtc_time); my_file.print(' ');
