@@ -42,7 +42,6 @@ void setup() {
     my_file.close();
   }
   
-
   while(!rtc.begin()) {
     Serial.println("Cannot find real time clock");
     while(1);
