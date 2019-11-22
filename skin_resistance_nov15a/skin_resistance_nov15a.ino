@@ -1,5 +1,5 @@
 #define PIN_READ A5
-#define RESISTOR_1 560 // Resistance in kOhms
+#define RESISTOR_1 390 // Resistance in kOhms
 #define V_IN 3.3 // Voltage in Volts
 
 double val;
