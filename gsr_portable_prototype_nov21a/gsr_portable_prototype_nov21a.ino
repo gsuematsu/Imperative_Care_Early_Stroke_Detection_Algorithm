@@ -3,7 +3,7 @@
 #include "RTClib.h"
 
 #define PIN_READ A5
-#define RESISTOR_1 560 // Resistance in kOhms
+#define RESISTOR_1 390 // Resistance in kOhms
 #define V_IN 3.3 // Voltage in Volts
 #define PIN_SD_CS 10
 
@@ -30,6 +30,18 @@ void setup() {
     while(1);
   }
   Serial.println("initialization done");
+
+  my_file = SD.open(FILE_NAME, FILE_WRITE);
+  if(my_file){
+    my_file.print("\n\n"); 
+    for(int i = 0; i < 10; i++) my_file.print("-");
+    my_file.print(" NEW SESSION ");
+    for(int i = 0; i < 10; i++) my_file.print("-");
+    my_file.print("\n\n");
+    
+    my_file.close();
+  }
+  
 
   while(!rtc.begin()) {
     Serial.println("Cannot find real time clock");
